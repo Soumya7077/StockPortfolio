@@ -14,7 +14,7 @@ def dbconnect():
 
 
     #Thank you for this program
-
+    #Welcome
 
     cur.execute("select c.categoryname,s.subcategoryname,s.subcategoryid from categorymaster c,subcategorymaster s where c.categoryid=s.categoryid")
     records = cur.fetchall()

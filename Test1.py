@@ -13,6 +13,9 @@ def dbconnect():
             subCategoryid=c[3]
 
 
+    #Thank you for this program
+
+
     cur.execute("select c.categoryname,s.subcategoryname,s.subcategoryid from categorymaster c,subcategorymaster s where c.categoryid=s.categoryid")
     records = cur.fetchall()
     for column in records:

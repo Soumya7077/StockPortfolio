@@ -12,6 +12,8 @@ def dbconnect():
             subCategoryName=c[2]
             subCategoryid=c[3]
 
+            #Thank you
+
 
     #Thank you for this program
     #Welcome

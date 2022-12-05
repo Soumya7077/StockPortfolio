@@ -18,15 +18,13 @@ def sectorMasterFetch():
             dictSector.update(sectorDictObj)
 
         stockCode = input("Enter Stock Code:").upper()
-        cur.execute("select stock_name,stock_code,subcategory_id from stockmaster where code=('%s')" % (stockCode))
+        cur.execute("select stock_name,stock_code,subcategory_id from stockmaster where stock_code=('%s')" % (stockCode))
         records = cur.fetchall()
 
         stName = records[0][0]  # Stock Name
         stCode = records[0][1]  # Stock Code
         subCatId = records[0][2]  # Sub Category id
-        # print(stName)
-        # print(stCode)
-        # print(subCatId)
+
 
         getValOfSubSec = dictSector.get(subCatId)  # Sector Name & Parent id
         subSectorName = getValOfSubSec[0]  # Sub Sector Name

@@ -1,7 +1,5 @@
 import csv, cx_Oracle
 from StockPortfolioConst import *
-
-
 def csvRead():
     try:
         with open(input("Enter the path of the file:"), "r") as fp:

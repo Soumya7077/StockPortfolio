@@ -1,6 +1,6 @@
-from databasecon import db
+from databasecon import dbconnect
 
-cur = db()
+cur = dbconnect()
 cm = cur.execute("select categoryid,categoryname from categorymaster")
 scum = cur.execute("select subcategoryid,categoryid,subcategoryname from subcategorymaster")
 sm = cur.execute("select subcategory_id,stock_name,stock_code from stockmaster")

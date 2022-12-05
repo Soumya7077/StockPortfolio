@@ -1,9 +1,9 @@
 # program for reading data from oracle
 from Databasecur import cm, scum, sm, records1, records2, records3, records
-from databasecon import db
+from databasecon import dbconnect
 from StockPortfolioConst import *
 
-cur = db()
+cur = dbconnect()
 
 
 def categorymaster():

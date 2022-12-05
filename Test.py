@@ -1,14 +1,16 @@
-#Add a new menu, which will take input as multiple stock codes(comma separated value) and gives output accordingly
+# Add a new menu, which will take input as multiple stock codes(comma separated value) and gives output accordingly
 import cx_Oracle
 from StockPortfolioConst import *
+
+
 def printStockDetailsBasedOnCode(stockCode):
     try:
         con = cx_Oracle.connect("c##babul/soumya@localhost/orcl")
         cur = con.cursor()
         cur.execute(const.STMST_SELECT)
         records = cur.fetchall()
-        #r=inputSt()
-        #print(r)
+        # r=inputSt()
+        # print(r)
         for column in records:
             if (stockCode == column[0]):
                 sm1 = column[0]  # Stock code
@@ -45,10 +47,11 @@ def printStockDetailsBasedOnCode(stockCode):
             catDictVal = dcm.get(catname)  # category name
             # print(g)
 
-
-        print("The stock code {} has stock name- {}, having subcategory as {} and with Sector as {}".format(stockCode, stName,
-                                                                                                        subCatDictVal[1],
-                                                                                                        catDictVal))
+        print("The stock code {} has stock name- {}, having subcategory as {} and with Sector as {}".format(stockCode,
+                                                                                                            stName,
+                                                                                                            subCatDictVal[
+                                                                                                                1],
+                                                                                                            catDictVal))
 
 
     except Exception as e:
@@ -56,23 +59,20 @@ def printStockDetailsBasedOnCode(stockCode):
         print(e)
 
 
-
-
-
-
 def mulInput():
     r = input("Enter stock code:").upper()
     return r
 
+
 def getStockDetails():
-    a=mulInput()
-    if (len(a)==1):
+    a = mulInput()
+    if (len(a) == 1):
         printStockDetailsBasedOnCode(a)
     else:
-        #a=getStockDetails(a.split(","))
-        s=a.split(",")
+        # a=getStockDetails(a.split(","))
+        s = a.split(",")
         for i in s:
             printStockDetailsBasedOnCode(i)
+
+
 getStockDetails()
-
-

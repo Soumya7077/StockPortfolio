@@ -1,6 +1,6 @@
-#Menu driven for database project
+# Menu driven for database project
 def menu():
-    print("-"*50)
+    print("-" * 50)
     print("\t1.Fetch CategoryMaster")
     print("\t2.Fetch SubCategoryMaster")
     print("\t3.Fetch StocksMaster")

@@ -59,7 +59,6 @@ def printStockDetailsBasedOnCode(stockCode):
         print("We could not find search item please try again")
         print(e)
 
-
 def mulInput():
     r = input("Enter stock code:").upper()
     return r

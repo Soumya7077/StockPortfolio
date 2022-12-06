@@ -2,19 +2,18 @@ import csv, cx_Oracle
 from StockPortfolioConst import *
 def marketCapMaster():
     try:
-        r=int(input("Enter value"))
         con = cx_Oracle.connect(const.DB_CONNECT)
         cur = con.cursor()
-        cur.execute("select id,marketcap_in_crores,capname from marketcapmaster where marketcap_in_crores between lower and upper=(%d)"%(r))
+        cur.execute("select marketcap_in_crores,capname,lag (marketcap_in_crores,1,0) over (order by marketcap_in_crores desc) as prev_marketcap_price from marketcapmaster")
         records=cur.fetchall()
         for column in records:
-            #print(column)
+            print(column)
             id=column[0]
             marketCapInCrores=column[1]
             capName=column[2]
-            if (r==marketCapInCrores):
-                print(capName)
 
+            """if (r==marketCapInCrores):
+                print(capName)"""
 
 
 

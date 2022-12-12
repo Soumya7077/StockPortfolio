@@ -12,7 +12,7 @@ def dbconnect():
         subSectorName = column[1]
 
     cur.execute(
-        "select st.name,st.code,s.subcategoryname,s.subcategoryid from stocksmaster st,subcategorymaster s where st.subcategory=s.subcategoryid")
+        "select st.stock_name,st.stock_code,s.subcategoryname,s.subcategoryid from stockmaster st,subcategorymaster s where st.subcategory_id=s.subcategoryid")
     records1 = cur.fetchall()
     r = input("Enter Stock Code:").upper()
     for c in records1:
@@ -22,5 +22,5 @@ def dbconnect():
             subCategoryName = c[2]  # Subcategory name
             subCategoryid = c[3]  # Subcategory id"""
 
-
+        print(records1)
 dbconnect()

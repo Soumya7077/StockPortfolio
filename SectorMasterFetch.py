@@ -1,6 +1,6 @@
 import cx_Oracle
 from StockPortfolioConst import *
-
+from FetchByJoin import takeInputFromUser
 
 def sectorMasterFetch():
     try:
@@ -17,7 +17,7 @@ def sectorMasterFetch():
 
             dictSector.update(sectorDictObj)
 
-        stockCode = input("Enter Stock Code:").upper()
+        stockCode = takeInputFromUser()
         cur.execute("select stock_name,stock_code,subcategory_id from stockmaster where stock_code=('%s')" % (stockCode))
         records = cur.fetchall()
 
@@ -26,15 +26,20 @@ def sectorMasterFetch():
         subCatId = records[0][2]  # Sub Category id
 
 
+
         getValOfSubSec = dictSector.get(subCatId)  # Sector Name & Parent id
         subSectorName = getValOfSubSec[0]  # Sub Sector Name
         parentID = getValOfSubSec[1]
-        getValOfSec = dictSector.get(parentID)  # Sector Name
+        getValOfSec = dictSector.get(parentID)
+        sectorName=getValOfSec[0]# Sector Name
         print("The Stock Code {} has stock name {} , Sub Sector Name {} and Sector name {}".format(stockCode, stName,
                                                                                                    subSectorName,
-                                                                                                   getValOfSec[0]))
+                                                                                                   sectorName))
+        return stName,subSectorName,sectorName
 
 
 
     except cx_Oracle.DatabaseError as db:
         print("Error in Database", db)
+
+

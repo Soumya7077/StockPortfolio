@@ -9,7 +9,7 @@ def csvRead():
                 print(record)
                 stCode = record[1]
                 stName = record[2]
-                # print(stCode)
+
 
                 try:
                     con = cx_Oracle.connect(const.DB_CONNECT)

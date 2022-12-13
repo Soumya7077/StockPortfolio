@@ -2,6 +2,7 @@ from Test4 import *
 from databasecon import *
 import cx_Oracle
 from FetchByJoin import *
+from StockReader import *
 import cx_Oracle
 def readall():
     a=fetchByJoin() #ICICI Bank Limited-stName, 'Bank'-Subsector Name, 'Finance'-Sector name
@@ -13,12 +14,7 @@ def readall():
     print("The stock code {} has stock name {}, sector name {}, subsector name {} and capname {} ".format(stCode,stName,sectorName,subSectorName,capName))
 
 
-def fetchCapName(stCode):
 
-    cur=dbconnect()
-    cur.execute("select cap_name from stockmarketcap where stock_code=('%s')"%stCode)
-    record=cur.fetchall()
-    return record[0][0]
 
 
 

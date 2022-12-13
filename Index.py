@@ -32,6 +32,7 @@ while (True):
                     updateRecord()
                 case 7:
                     deleteRecord()
+                    #Above all for practice purpose
                 case 8:
                     csvRead()
                 case 9:

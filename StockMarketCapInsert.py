@@ -1,6 +1,6 @@
 import csv, cx_Oracle
 from StockPortfolioConst import *
-from Test4 import *
+from StockReader import *
 
 
 
